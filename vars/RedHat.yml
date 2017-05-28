@@ -1,4 +1,4 @@
 ---
 ipxe_dep_os_pkgs:
-  - xv-devel
+  - xz-devel
   - genisoimage

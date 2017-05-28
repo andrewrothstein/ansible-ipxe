@@ -1,4 +1,4 @@
 ---
 ipxe_dep_os_pkgs:
   - liblzma-dev
-  - cdrkit
+  - geniosimage
