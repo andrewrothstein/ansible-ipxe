@@ -19,11 +19,21 @@
     mode: 0755
 
 - name: clone ipxe git repo
+  become: yes
+  become_user: root
   git:
     repo: '{{ipxe_git_url}}'
     dest: '{{ipxe_src_dir}}'
 
-- name: build...
-  command: make
-  args:
-    chdir: '{{ipxe_src_dir}}/src'
+- name: install dep pkgs
+  become: yes
+  become_user: root
+  with_items: '{{ipxe_dep_os_pkgs|default([])}}'
+  package:
+    name: '{{item}}'
+    
+    
+#- name: build...
+#  command: make
+#  args:
+#    chdir: '{{ipxe_src_dir}}/src'
