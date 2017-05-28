@@ -1,0 +1,5 @@
+---
+# defaults file for ipxe
+ipxe_git_url: https://git.ipxe.org/ipxe.git
+ipxe_git_version: HEAD
+ipxe_repos_dir: /ipxe-repos

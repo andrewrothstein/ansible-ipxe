@@ -1,0 +1,29 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{item}}'
+  with_first_found:
+    - files:
+        - '{{ansible_distribution}}-{{ansible_distribution_release}}.yml'
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      skip: true
+      paths:
+        - '{{role_path}}/vars'
+
+- name: create parent src directory
+  become: yes
+  become_user: root
+  file:
+    path: '{{ipxe_repos_dir}}'
+    state: directory
+    mode: 0755
+
+- name: clone ipxe git repo
+  git:
+    repo: '{{ipxe_git_url}}'
+    dest: '{{ipxe_src_dir}}'
+
+- name: build...
+  command: make
+  args:
+    chdir: '{{ipxe_src_dir}}/src'

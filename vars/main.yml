@@ -1,0 +1,3 @@
+---
+# vars file for ipxe
+ipxe_src_dir: '{{ipxe_repos_dir}}/{{ipxe_git_version}}'
