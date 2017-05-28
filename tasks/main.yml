@@ -33,7 +33,7 @@
     name: '{{item}}'
     
     
-#- name: build...
-#  command: make
-#  args:
-#    chdir: '{{ipxe_src_dir}}/src'
+- name: build...
+  command: make
+  args:
+    chdir: '{{ipxe_src_dir}}/src'

@@ -1,0 +1,4 @@
+---
+ipxe_dep_os_pkgs:
+  - xz-dev
+  - cdrkit
