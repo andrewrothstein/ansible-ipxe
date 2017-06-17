@@ -25,11 +25,11 @@ galaxy_info:
     - coreos4life
 
 dependencies:
-  - role: andrewrothstein.bash
-    version: v1.0.2
-  - role: andrewrothstein.git
+  - src: andrewrothstein.bash
+    version: v1.0.4
+  - src: andrewrothstein.git
     version: v3.0.1
-  - role: andrewrothstein.gcc-toolbox
+  - src: andrewrothstein.gcc-toolbox
     version: v1.0.5
 
   

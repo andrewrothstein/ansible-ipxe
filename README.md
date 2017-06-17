@@ -2,7 +2,7 @@ andrewrothstein.ipxe
 =========
 [![Build Status](https://travis-ci.org/andrewrothstein/ansible-ipxe.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-ipxe)
 
-Builds [ipxe]() from sources.
+Builds [ipxe](http://ipxe.org/) from sources.
 
 Requirements
 ------------
