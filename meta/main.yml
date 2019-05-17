@@ -1,33 +1,31 @@
----
+dependencies:
+- role: andrewrothstein.bash
+  version: v1.1.1
+- role: andrewrothstein.git
+  version: v3.0.2
+- role: andrewrothstein.gcc-toolbox
+  version: v1.0.11
 galaxy_info:
   author: Andrew Rothstein
-  description: installs src and builds ipxe
   company: BlackRock
+  description: installs src and builds ipxe
+  galaxy_tags:
+  - ipxe
+  - pxeboot
+  - coreos4life
   license:
-    - MIT
+  - MIT
   min_ansible_version: 2.0
   platforms:
-    - name: EL
-      versions:
-        - all
-    - name: Fedora
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
-    - name: Alpine
-      versions:
-        - all
-  galaxy_tags:
-    - ipxe
-    - pxeboot
-    - coreos4life
-
-dependencies:
-  - src: andrewrothstein.bash
-    version: v1.1.1
-  - src: andrewrothstein.git
-    version: v3.0.2
-  - src: andrewrothstein.gcc-toolbox
-    version: v1.0.9
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Alpine
+    versions:
+    - all
