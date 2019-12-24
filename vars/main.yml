@@ -1,4 +1,4 @@
 ---
 # vars file for ipxe
-ipxe_src_dir: '{{ipxe_repos_dir}}/ipxe-{{ipxe_git_version}}'
-ipxe_src_link_dir: '{{ipxe_repos_dir}}/ipxe'
+ipxe_src_dir: '{{ ipxe_repos_dir }}/ipxe-{{ ipxe_git_version }}'
+ipxe_src_link_dir: '{{ ipxe_repos_dir }}/ipxe'
