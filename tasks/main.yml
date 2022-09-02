@@ -11,13 +11,13 @@
         - '{{ role_path }}/vars'
 
 - name: install dep pkgs
-  become: yes
+  become: true
   become_user: root
   package:
     name: '{{ ipxe_dep_os_pkgs|default([]) }}'
-    
+
 - name: ensure srcs directory exists...
-  become: yes
+  become: true
   become_user: root
   file:
     path: '{{ ipxe_repos_dir }}'
@@ -25,14 +25,14 @@
     mode: 0755
 
 - name: clone ipxe git repo
-  become: yes
+  become: true
   become_user: root
   git:
     repo: '{{ ipxe_git_url }}'
     dest: '{{ ipxe_src_dir }}'
 
 - name: convenience link...
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ ipxe_src_dir }}'
@@ -40,14 +40,14 @@
     state: link
 
 - name: build...
-  become: yes
+  become: true
   become_user: root
   command: make
   args:
     chdir: '{{ ipxe_src_link_dir }}/src'
 
 - name: install useful scripts...
-  become: yes
+  become: true
   become_user: root
   with_items:
     - f: make-ipxe-iso

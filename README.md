@@ -1,6 +1,6 @@
 andrewrothstein.ipxe
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-ipxe.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-ipxe)
+![Build Status](https://github.com/andrewrothstein/ansible-ipxe/actions/workflows/build.yml/badge.svg)
 
 Builds [ipxe](http://ipxe.org/) from sources.
 
