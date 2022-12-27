@@ -2,6 +2,6 @@
 - name: andrewrothstein.bash
   version: v1.1.11
 - name: andrewrothstein.git
-  version: v3.1.7
+  version: v3.2.2
 - name: andrewrothstein.gcc-toolbox
-  version: v1.1.7
+  version: v1.1.9
