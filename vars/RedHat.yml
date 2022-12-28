@@ -3,3 +3,4 @@ ipxe_dep_os_pkgs:
   - xz-devel
   - genisoimage
   - syslinux
+  - isolinux
