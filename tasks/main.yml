@@ -16,13 +16,13 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: install dep pkgs
+- name: install os dep pkgs
   become: true
   become_user: root
   package:
-    name: '{{ ipxe_dep_os_pkgs|default([]) }}'
+    name: '{{ ipxe_dep_os_pkgs | default([]) }}'
 
-- name: ensure srcs directory exists...
+- name: mkdir -p {{ ipxe_repos_dir }}
   become: true
   become_user: root
   file:
@@ -30,14 +30,14 @@
     state: directory
     mode: 0755
 
-- name: clone ipxe git repo
+- name: cloning ipxe git repo at {{ ipxe_git_url }} to {{ ipxe_src_dir }}
   become: true
   become_user: root
   git:
     repo: '{{ ipxe_git_url }}'
     dest: '{{ ipxe_src_dir }}'
 
-- name: convenience link...
+- name: linking {{ ipxe_src_link_dir }} to {{ ipxe_src_dir }}
   become: true
   become_user: root
   file:
@@ -45,22 +45,20 @@
     dest: '{{ ipxe_src_link_dir }}'
     state: link
 
-- name: build...
+- name: make everything in {{ ipxe_src_link_dir }}/src
   become: true
   become_user: root
-  command: make
+  command: make everything
   args:
     chdir: '{{ ipxe_src_link_dir }}/src'
 
-- name: install useful scripts...
+- name: add useful shell scriptlets for login shells
   become: true
   become_user: root
   with_items:
-    - f: make-ipxe-iso
-      d: /usr/local/bin
-    - f: make-ipxe-usb
-      d: /usr/local/bin
+    - f: make-ipxe.sh
+      d: /etc/profile.d
   template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
-    mode: '{{ item.m|default("0755") }}'
+    mode: '{{ item.m|default("0644") }}'

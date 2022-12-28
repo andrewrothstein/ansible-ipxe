@@ -1,0 +1,28 @@
+_make_ipxe() {
+    ty=${1}
+    embed=${2}
+    output=${3}
+    src_dir=${4:-"{{ ipxe_src_link_dir }}"}
+    cd "${src_dir}"
+    make_target="bin/ipxe.${ty}"
+    make \
+        "${make_target}" \
+        "EMBED=${embed}"
+    cp \
+        "${make_target}" \
+        "${output}"
+}
+
+make-ipxe-usb() {
+    embed=${1}
+    output=${2}
+    src_dir=${3:-"{{ ipxe_src_link_dir }}"}
+    _make_ipxe usb $embed $output $src_dir
+}
+
+make-ipxe-iso() {
+    embed=${1}
+    output=${2}
+    src_dir=${3:-"{{ ipxe_src_link_dir }}"}
+    _make_ipxe iso $embed $output $src_dir
+}
