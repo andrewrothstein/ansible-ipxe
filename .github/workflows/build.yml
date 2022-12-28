@@ -23,10 +23,6 @@ jobs:
         os:
         - debian_bullseye
         - debian_buster
-        - fedora_36
-        - fedora_37
-        - rockylinux_8
-        - rockylinux_9
         - ubuntu_bionic
         - ubuntu_focal
         - ubuntu_jammy
