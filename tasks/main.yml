@@ -45,10 +45,10 @@
     dest: '{{ ipxe_src_link_dir }}'
     state: link
 
-- name: make everything in {{ ipxe_src_link_dir }}/src
+- name: make {{ ipxe_src_link_dir }}/src
   become: true
   become_user: root
-  command: make everything
+  command: make
   args:
     chdir: '{{ ipxe_src_link_dir }}/src'
 
