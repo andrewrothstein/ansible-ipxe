@@ -1,0 +1,24 @@
+---
+version: '3'
+tasks:
+  make-ipxe:
+    internal: true
+    vars:
+      src_dir: '{{ .src_dir }}'
+      ty: '{{ .ty }}'
+      embed: '{{ .embed }}'
+    cmds:
+      - |
+        set -ex
+        cd {{ .src_dir | default "/usr/local/src/ipxe/src" | quote }};
+        make 'bin/ipxe.{{ .ty | default "usb" }}' {{ if .embed }}EMBED={{ .embed | quote }}{{ end }};
+  make-ipxe-usb:
+    cmds:
+      - task: make-ipxe
+        vars:
+          ty: usb
+  make-ipxe-iso:
+    cmds:
+      - task: make-ipxe
+        vars:
+          ty: iso
