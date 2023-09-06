@@ -13,14 +13,14 @@ _make_ipxe() {
         "${output}"
 }
 
-make-ipxe-usb() {
+make_ipxe_usb() {
     embed=${1}
     output=${2}
     src_dir=${3:-"{{ ipxe_src_link_dir }}"}
     _make_ipxe usb $embed $output $src_dir
 }
 
-make-ipxe-iso() {
+make_ipxe_iso() {
     embed=${1}
     output=${2}
     src_dir=${3:-"{{ ipxe_src_link_dir }}"}
