@@ -1,0 +1,18 @@
+[
+  {
+    "OS": "debian",
+    "OS_VER": "bookworm"
+  },
+  {
+    "OS": "debian",
+    "OS_VER": "bullseye"
+  },
+  {
+    "OS": "ubuntu",
+    "OS_VER": "focal"
+  },
+  {
+    "OS": "ubuntu",
+    "OS_VER": "jammy"
+  }
+]
