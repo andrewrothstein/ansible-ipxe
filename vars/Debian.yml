@@ -2,5 +2,6 @@
 ipxe_dep_os_pkgs:
   - genisoimage
   - liblzma-dev
+  - mtools
   - syslinux
   - isolinux

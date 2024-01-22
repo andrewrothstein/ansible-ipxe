@@ -4,19 +4,18 @@ galaxy_info:
   company: BlackRock
   description: installs src and builds ipxe
   galaxy_tags:
-  - ipxe
-  - pxeboot
-  - coreos4life
-  license:
-  - MIT
-  min_ansible_version: 2.0
+    - ipxe
+    - pxeboot
+  license: MIT
+  min_ansible_version: '2.0'
+  namespace: andrewrothstein
   platforms:
-  - name: Debian
-    versions:
-    - bullseye
-    - buster
-  - name: Ubuntu
-    versions:
-    - bionic
-    - focal
-    - jammy
+    - name: Debian
+      versions:
+        - bookworm
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+  role_name: ipxe

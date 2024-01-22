@@ -1,12 +1,15 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.bash
+  ansible.builtin.include_role:
     name: andrewrothstein.bash
-- include_role:
+- name: Installing andrewrothstein.git
+  ansible.builtin.include_role:
     name: andrewrothstein.git
-- include_role:
+- name: Installing andrewrothstein.gcc_toolbox
+  ansible.builtin.include_role:
     name: andrewrothstein.gcc_toolbox
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -16,49 +19,56 @@
       paths:
         - '{{ role_path }}/vars'
 
-- name: install os dep pkgs
+- name: Install os dep pkgs
   become: true
   become_user: root
-  package:
+  ansible.builtin.package:
     name: '{{ ipxe_dep_os_pkgs | default([]) }}'
 
-- name: mkdir -p {{ ipxe_repos_dir }}
+- name: Mkdir -p {{ ipxe_repos_dir }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     path: '{{ ipxe_repos_dir }}'
     state: directory
-    mode: 0755
+    mode: '755'
 
-- name: cloning ipxe git repo at {{ ipxe_git_url }} to {{ ipxe_src_dir }}
+- name: Cloning ipxe git repo at {{ ipxe_git_url }} to {{ ipxe_src_dir }}
   become: true
   become_user: root
-  git:
+  ansible.builtin.git:
     repo: '{{ ipxe_git_url }}'
     dest: '{{ ipxe_src_dir }}'
 
-- name: linking {{ ipxe_src_link_dir }} to {{ ipxe_src_dir }}
+- name: Linking {{ ipxe_src_link_dir }} to {{ ipxe_src_dir }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ ipxe_src_dir }}'
     dest: '{{ ipxe_src_link_dir }}'
     state: link
 
-- name: make {{ ipxe_src_link_dir }}/src
+- name: Make (bios) in {{ ipxe_src_link_dir }}
   become: true
   become_user: root
-  command: make
+  ansible.builtin.command: make -j 4 -C src
   args:
-    chdir: '{{ ipxe_src_link_dir }}/src'
+    chdir: '{{ ipxe_src_link_dir }}'
 
-- name: add useful shell scriptlets for login shells
+- name: Make (everything) in {{ ipxe_src_link_dir }}
+  become: true
+  become_user: root
+  ansible.builtin.command: make -j 4 -C src everything
+  args:
+    chdir: '{{ ipxe_src_link_dir }}'
+
+- name: Add useful shell scriptlets for login shells
   become: true
   become_user: root
   with_items:
     - f: make-ipxe.sh
       d: /etc/profile.d
-  template:
+  ansible.builtin.template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
-    mode: '{{ item.m|default("0644") }}'
+    mode: '{{ item.m | default("644") }}'

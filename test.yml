@@ -1,4 +1,5 @@
 ---
-- hosts: all
+- name: Testing andrewrothtein.ipxe
+  hosts: all
   roles:
     - role: '{{ playbook_dir }}'
