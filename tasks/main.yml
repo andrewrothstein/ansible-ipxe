@@ -39,6 +39,7 @@
   ansible.builtin.git:
     repo: '{{ ipxe_git_url }}'
     dest: '{{ ipxe_src_dir }}'
+    version: '{{ ipxe_git_version }}'
 
 - name: Linking {{ ipxe_src_link_dir }} to {{ ipxe_src_dir }}
   become: true
@@ -54,6 +55,7 @@
   ansible.builtin.command: make -j 4 -C src
   args:
     chdir: '{{ ipxe_src_link_dir }}'
+  changed_when: false
 
 - name: Make (everything) in {{ ipxe_src_link_dir }}
   become: true
@@ -61,6 +63,7 @@
   ansible.builtin.command: make -j 4 -C src everything
   args:
     chdir: '{{ ipxe_src_link_dir }}'
+  changed_when: false
 
 - name: Add useful shell scriptlets for login shells
   become: true
