@@ -16,6 +16,5 @@ galaxy_info:
         - bullseye
     - name: Ubuntu
       versions:
-        - focal
         - jammy
   role_name: ipxe
