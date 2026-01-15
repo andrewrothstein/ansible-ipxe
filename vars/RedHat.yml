@@ -1,6 +1,5 @@
 ---
+# Minimal packages for UBI and other minimal RHEL-based images
+# Distribution-specific files (Fedora.yml, Rocky.yml) have full package lists
 ipxe_dep_os_pkgs:
   - xz-devel
-  - genisoimage
-  - syslinux
-  - isolinux

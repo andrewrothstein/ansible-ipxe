@@ -1,5 +1,5 @@
 ---
 ipxe_dep_os_pkgs:
-  - xz-dev
-  - cdrkit
+  - xz-devel
+  - genisoimage
   - syslinux

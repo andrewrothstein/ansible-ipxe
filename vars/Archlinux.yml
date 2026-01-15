@@ -3,4 +3,3 @@ ipxe_dep_os_pkgs:
   - xz
   - cdrkit
   - syslinux
-  - isolinux
