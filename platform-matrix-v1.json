@@ -55,16 +55,6 @@
     "platforms": "linux/amd64"
   },
   {
-    "OS": "ubi",
-    "OS_VER": "9",
-    "platforms": "linux/amd64"
-  },
-  {
-    "OS": "ubi",
-    "OS_VER": "10",
-    "platforms": "linux/amd64"
-  },
-  {
     "OS": "ubuntu",
     "OS_VER": "jammy",
     "platforms": "linux/amd64"
