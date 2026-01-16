@@ -1,0 +1,8 @@
+---
+ipxe_dep_os_pkgs:
+  - xz-devel
+  - genisoimage
+  - glibc-devel.i686
+  - mtools
+  - perl-FindBin
+  - syslinux
