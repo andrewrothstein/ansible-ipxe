@@ -50,11 +50,6 @@
     "platforms": "linux/amd64"
   },
   {
-    "OS": "rockylinux",
-    "OS_VER": "10",
-    "platforms": "linux/amd64"
-  },
-  {
     "OS": "ubuntu",
     "OS_VER": "jammy",
     "platforms": "linux/amd64"

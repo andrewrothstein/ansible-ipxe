@@ -2,5 +2,6 @@
 ipxe_dep_os_pkgs:
   - xz
   - cdrkit
+  - lib32-glibc
   - mtools
   - syslinux

@@ -3,4 +3,5 @@ ipxe_dep_os_pkgs:
   - xz-devel
   - genisoimage
   - mtools
+  - perl-FindBin
   - syslinux
